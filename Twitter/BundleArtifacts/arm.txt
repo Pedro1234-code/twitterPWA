@@ -1,2 +1,0 @@
-MainPackage=C:\Users\User\source\repos\Twitter\Twitter\bin\ARM\Debug\Twitter_8.3.1.0_ARM_Debug.appx
-SymbolPackage=C:\Users\User\source\repos\Twitter\Twitter\obj\ARM\Debug\Symbols\Twitter_8.3.1.0_ARM_Debug.appxsym

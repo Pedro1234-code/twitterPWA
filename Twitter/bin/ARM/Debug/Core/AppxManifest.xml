@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:custom="http://schemas.microsoft.com/appx/manifest/customcapabilities" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap mp build" xmlns:build="http://schemas.microsoft.com/developer/appx/2015/build">
+  <!--
+    ESTE ARQUIVO DE PACOTE DE MANIFESTO É GERADO PELO PROCESSO DE COMPILAÇÃO.
+
+    Alterações feitas neste arquivo serão perdidas quando ele for regenerado. Para corrigir erros neste arquivo, edite o arquivo de fonte .appxmanifest.
+
+    Para obter mais informações sobre arquivos de pacote de manifesto consulte http://go.microsoft.com/fwlink/?LinkID=241727
+  -->
+  <Identity Name="9E2F88E3.Twitter" Publisher="CN=2079F891-4F1B-4C35-9488-2582FB598793" Version="8.3.2.0" ProcessorArchitecture="arm" />
+  <mp:PhoneIdentity PhoneProductId="a07c5224-8cf4-4018-af2f-46478288c702" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Twitter</DisplayName>
+    <PublisherDisplayName>Twitter Inc.</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10240.0" MaxVersionTested="10.0.22621.0" />
+    <PackageDependency Name="Microsoft.VCLibs.140.00.Debug" MinVersion="14.0.30704.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+    <PackageDependency Name="Microsoft.NET.CoreRuntime.1.1" MinVersion="1.1.27004.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="PT-BR" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="Twitter.exe" EntryPoint="Twitter.App">
+      <uap:VisualElements DisplayName="Twitter" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Twitter" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.shareTarget">
+          <uap:ShareTarget>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.jpg</uap:FileType>
+              <uap:FileType>.jpeg</uap:FileType>
+              <uap:FileType>.png</uap:FileType>
+              <uap:FileType>.gif</uap:FileType>
+              <uap:FileType>.mov</uap:FileType>
+              <uap:FileType>.mp4</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:DataFormat>Text</uap:DataFormat>
+            <uap:DataFormat>Bitmap</uap:DataFormat>
+            <uap:DataFormat>WebLink</uap:DataFormat>
+          </uap:ShareTarget>
+        </uap:Extension>
+        <uap:Extension Category="windows.protocol" EntryPoint="Twitter.App">
+          <uap:Protocol Name="twitter">
+            <uap:DisplayName>Twitter</uap:DisplayName>
+          </uap:Protocol>
+        </uap:Extension>
+        <uap3:Extension Category="windows.appUriHandler">
+          <uap3:AppUriHandler>
+            <uap3:Host Name="mobile.twitter.com" />
+            <uap3:Host Name="twitter.com" />
+            <uap3:Host Name="www.twitter.com" />
+          </uap3:AppUriHandler>
+        </uap3:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
+    <uap:Capability Name="removableStorage" />
+    <Capability Name="privateNetworkClientServer" />
+  </Capabilities>
+  <Extensions>
+    <Extension Category="windows.activatableClass.inProcessServer">
+      <InProcessServer>
+        <Path>Twitter.exe</Path>
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastSelectionBox" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastArguments" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastBindingShoulderTap" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastPeople" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastContextMenuItem" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.AdaptiveProgressBar" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.TileBindingContentIconic" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.TileBackgroundImage" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.TileBindingContentContact" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastActionsCustom" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.TileBasicText" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.AdaptiveSubgroup" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.BadgeGlyphContent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastActivationOptions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastButton" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastBindingGeneric" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastGenericHeroImage" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.TileBindingContentPhotos" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastNotificationManagerCompat" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.TileBindingContentAdaptive" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastButtonSnooze" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastButtonDismiss" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastContentBuilder" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.BadgeNumericContent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.TileBasicImage" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.AdaptiveImage" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.TileVisual" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastSpriteSheet" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastSelectionBoxItem" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.AdaptiveProgressBarValue" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastHeader" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastGenericAppLogo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.TileBinding" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastAudio" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastActionsSnoozeAndDismiss" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.TilePeekImage" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastContent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastVisual" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastShoulderTapImage" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.AdaptiveGroup" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.TileContent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastTextBox" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.AdaptiveText" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.ToastGenericAttributionText" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.Toolkit.Uwp.Notifications.TileBindingContentPeople" ThreadingModel="both" />
+      </InProcessServer>
+    </Extension>
+  </Extensions>
+  <build:Metadata>
+    <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
+    <build:Item Name="VisualStudio" Version="17.0" />
+    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2022" />
+    <build:Item Name="OperatingSystem" Version="10.0.22621.1554 (WinBuild.160101.0800)" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="17.5.33502.375" />
+    <build:Item Name="ProjectGUID" Value="{F5C52D4A-674F-419C-8F00-7113E59FFDC0}" />
+    <build:Item Name="OptimizingToolset" Value="None" />
+    <build:Item Name="TargetRuntime" Value="Managed" />
+    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="17.0.33502.375" />
+    <build:Item Name="MakePri.exe" Version="10.0.22621.755 (WinBuild.160101.0800)" />
+  </build:Metadata>
+</Package>

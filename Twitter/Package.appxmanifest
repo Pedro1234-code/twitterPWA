@@ -12,7 +12,7 @@
   <Identity
     Name="9E2F88E3.Twitter"
     Publisher="CN=2079F891-4F1B-4C35-9488-2582FB598793"
-    Version="8.3.3.0" />
+    Version="8.4.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="a07c5224-8cf4-4018-af2f-46478288c702" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

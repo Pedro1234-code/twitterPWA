@@ -10,6 +10,9 @@ using Windows.Web.Http;
 using Windows.Web.Http.Filters;
 using Microsoft.Toolkit.Uwp.Notifications;
 using Windows.UI.Notifications;
+using System.Threading.Tasks;
+using Windows.Networking.Connectivity;
+using Windows.UI.Popups;
 
 namespace Twitter
 {
@@ -21,18 +24,43 @@ namespace Twitter
             SystemNavigationManager currentView =
             SystemNavigationManager.GetForCurrentView();
             this.InitializeComponent();
+            CheckInternetConnection();
             currentView.BackRequested += CurrentView_BackRequested;
             wb.NavigationStarting += Wb_NavigationStarting;
             NavigateWithHeader(new Uri("https://mobile.twitter.com"));
-            ElementCompositionPreview.SetIsTranslationEnabled(MyWebView, true);
+            ElementCompositionPreview.SetIsTranslationEnabled(MyFrame, true);
 
+        }
+
+        private async void CheckInternetConnection()
+        {
+            bool isConnected = await CheckForInternetConnection();
+            if (isConnected)
+            {
+                NavigateWithHeader(new Uri("https://mobile.twitter.com"));
+            }
+            else
+            {
+                NavigateWithHeader(new Uri("ms-appx-web:///ErrorPage.html"));
+            }
+        }
+
+        private async Task<bool> CheckForInternetConnection()
+        {
+            ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();
+            bool internet = (connections != null) && (connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess);
+            if (!internet)
+            {
+                await new MessageDialog("No Internet Connection Found").ShowAsync();
+            }
+            return internet;
         }
 
         private void CurrentView_BackRequested(object sender, BackRequestedEventArgs e)
         {
-            if (MyWebView.CanGoBack)
+            if (MyFrame.CanGoBack)
             {
-                bool canGoBack = MyWebView.CanGoBack;
+                bool canGoBack = MyFrame.CanGoBack;
 
             }
             else
@@ -53,6 +81,11 @@ namespace Twitter
             wb.NavigateWithHttpRequestMessage(requestMsg);
         }
 
+        private void MyWebView_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
+        {
+            NavigateWithHeader(new Uri("ms-appx-web:///ErrorPage.html"));
+        }
+
         private void Wb_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
         {
             wb.NavigationStarting -= Wb_NavigationStarting;
@@ -63,7 +96,7 @@ namespace Twitter
         private async void RenderWebViewToImageAsync()
         {
             var bitmap = new RenderTargetBitmap();
-            await bitmap.RenderAsync(MyWebView);
+            await bitmap.RenderAsync(MyFrame);
             var brush = new ImageBrush { ImageSource = bitmap };
             // Set the brush as the background of a UI element in your app
         }

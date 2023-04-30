@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,14 +37,20 @@
             width: 90px;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("try-again-button").addEventListener("click", function () {
+                window.location.href = "https://twitter.com";
+            });
+        });
+    </script>
 </head>
-
 <body>
     <div>
         <img src="Twitter_Logo_Blue.png" />
         <h1>Twitter requires an internet connection</h1>
         <p>It looks like we are having trouble connecting right now. Please check your connection and try again.</p>
+        <button id="try-again-button">Try Again</button>
     </div>
 </body>
-
 </html>

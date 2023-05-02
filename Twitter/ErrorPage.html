@@ -40,7 +40,15 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("try-again-button").addEventListener("click", function () {
-                window.location.href = "https://twitter.com";
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        window.location.href = "https://twitter.com";
+                    }
+                };
+                xhr.open("GET", "/", true);
+                xhr.setRequestHeader("User-Agent", "Mozilla / 5.0(Linux; U; Android 13.0; en - us; SCH - I535 Build / KOT49H) AppleWebKit / 534.30(KHTML, like Gecko) Version / 4.0 Mobile Safari/ 534.30");
+                xhr.send();
             });
         });
     </script>

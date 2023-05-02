@@ -18,7 +18,6 @@ namespace Twitter
 {
     public sealed partial class MainPage : Page
     {
-        private ToastNotifier _notifier;
         public MainPage()
         {
             SystemNavigationManager currentView =
@@ -76,7 +75,7 @@ namespace Twitter
             filter.CacheControl.WriteBehavior = HttpCacheWriteBehavior.NoCache;
             var httpClient = new HttpClient(filter);
             var requestMsg = new HttpRequestMessage(HttpMethod.Get, uri);
-            requestMsg.Headers.Add("User-Agent", "Mozilla / 5.0(Linux; U; Android 8.1; en - us; SCH - I535 Build / KOT49H) AppleWebKit / 534.30(KHTML, like Gecko) Version / 4.0 Mobile Safari/ 534.30");
+            requestMsg.Headers.Add("User-Agent", "Mozilla / 5.0(Linux; U; Android 13.0; en - us; SCH - I535 Build / KOT49H) AppleWebKit / 534.30(KHTML, like Gecko) Version / 4.0 Mobile Safari/ 534.30");
             requestMsg.Headers.Add("Accept-Encoding", "gzip"); // Optimize HTTP requests
             wb.NavigateWithHttpRequestMessage(requestMsg);
         }

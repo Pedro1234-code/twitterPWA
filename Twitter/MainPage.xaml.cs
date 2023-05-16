@@ -14,6 +14,7 @@ using Microsoft.Toolkit.Uwp.Notifications;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Input;
 using Windows.Storage.Streams;
 using Windows.Storage;
 
@@ -26,10 +27,13 @@ namespace Twitter
             SystemNavigationManager currentView = SystemNavigationManager.GetForCurrentView();
             this.InitializeComponent();
             CheckInternetConnection();
-            currentView.BackRequested += CurrentView_BackRequested;
+            currentView.BackRequested += CurrentView_BackRequested; // Add this line to handle the back button request
             wb.NavigationStarting += Wb_NavigationStarting;
             NavigateWithHeader(new Uri("https://mobile.twitter.com"));
             ElementCompositionPreview.SetIsTranslationEnabled(MyFrame, true);
+            // Set the visibility of the back button to true
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            wb.Focus(FocusState.Programmatic);
         }
 
         private async void CheckInternetConnection()
@@ -48,7 +52,8 @@ namespace Twitter
         private async Task<bool> CheckForInternetConnection()
         {
             ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();
-            bool internet = (connections != null) && (connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess);
+            bool internet = (connections != null) && (connections.GetNetworkConnectivityLevel()
+                == NetworkConnectivityLevel.InternetAccess);
             if (!internet)
             {
                 await new MessageDialog("No Internet Connection Found").ShowAsync();
@@ -58,13 +63,11 @@ namespace Twitter
 
         private void CurrentView_BackRequested(object sender, BackRequestedEventArgs e)
         {
-            if (MyFrame.CanGoBack)
+            if (wb.CanGoBack) // Check if the frame can go back
             {
-                bool canGoBack = MyFrame.CanGoBack;
-            }
-            else
-            {
-                e.Handled = true;
+                // If the WebView's Frame can go back, navigate back
+                wb.GoBack();
+                e.Handled = true; // Mark the event as handled to prevent the default back behavior
             }
         }
 
@@ -99,7 +102,6 @@ namespace Twitter
                     filePicker.FileTypeFilter.Add(".jpg");
                     filePicker.FileTypeFilter.Add(".jpeg");
                     filePicker.FileTypeFilter.Add(".png");
-                    filePicker.FileTypeFilter.Add(".gif");
                     filePicker.FileTypeFilter.Add(".bmp");
                     var file = await filePicker.PickSingleFileAsync();
                     if (file != null)
@@ -146,10 +148,10 @@ namespace Twitter
                         // No file picked
                     }
                 }
-                else
-                {
-                    // Handle other navigation
-                }
+            }
+            else
+            {
+                // Handle other navigation
             }
         }
 

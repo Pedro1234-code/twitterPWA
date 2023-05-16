@@ -71,6 +71,13 @@
             <uap3:Host Name="www.twitter.com" />
           </uap3:AppUriHandler>
         </uap3:Extension>
+        <uap:Extension Category="windows.fileOpenPicker">
+          <uap:FileOpenPicker>
+            <uap:SupportedFileTypes>
+              <uap:SupportsAnyFileType/>
+            </uap:SupportedFileTypes>
+          </uap:FileOpenPicker>
+        </uap:Extension>
 
       </Extensions>
     </Application>

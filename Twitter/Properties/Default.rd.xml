@@ -18,7 +18,7 @@
 <Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
   <Application>
     <!--
- Um elemento de Assembly com Nome="*Aplicativo*" se aplica a todos os assemblies no
+      Um elemento de Assembly com Nome="*Aplicativo*" se aplica a todos os assemblies no
  pacote do aplicativo. Os asteriscos não são curingas.
        -->
     <Assembly Name="*Application*" Dynamic="Required All" />

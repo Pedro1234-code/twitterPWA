@@ -2,17 +2,14 @@
     x:Class="Twitter.ErrorPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Twitter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="24"
-            Text="Please connect into the internet and try again" />
+        <Image Source="Assets\Square150x150Logo.scale-400.png" HorizontalAlignment="Center" Height="484" Margin="0,0,0,0" VerticalAlignment="Center" Width="1002"/>
+        <Button x:Name="LoadAgain" Content="No connection." HorizontalAlignment="Center" Margin="0,682,0,0" VerticalAlignment="Top" Height="86" Width="341" FontSize="36"/>
     </Grid>
 </Page>

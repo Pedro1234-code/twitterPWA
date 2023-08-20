@@ -12,20 +12,19 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Notifications;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace Twitter
 {
-    /// <resumo>
+    /// <summary>
     ///Fornece o comportamento específico do aplicativo para complementar a classe Application padrão.
     /// </summary>
     sealed partial class App : Application
     {
         /// <summary>
-        /// Inicializa o objeto singleton do aplicativo. Essa é a primeira linha do código criado
-        /// executado e, por isso, é o equivalente lógico de main() ou WinMain().
+        /// Inicializa o objeto singleton do aplicativo.  Esta é a primeira linha de código criado
+        /// executado e, como tal, é o equivalente lógico de main() ou WinMain().
         /// </summary>
         public App()
         {
@@ -34,7 +33,7 @@ namespace Twitter
         }
 
         /// <summary>
-        /// Invocado quando o aplicativo é iniciado normalmente pelo usuário final. Outros pontos de entrada
+        /// Chamado quando o aplicativo é iniciado normalmente pelo usuário final.  Outros pontos de entrada
         /// serão usados, por exemplo, quando o aplicativo for iniciado para abrir um arquivo específico.
         /// </summary>
         /// <param name="e">Detalhes sobre a solicitação e o processo de inicialização.</param>
@@ -66,7 +65,7 @@ namespace Twitter
                 {
                     // Quando a pilha de navegação não for restaurada, navegar para a primeira página,
                     // configurando a nova página passando as informações necessárias como um parâmetro
-                    // de navegação
+                    // parâmetro
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
                 // Verifique se a janela atual está ativa
@@ -85,11 +84,11 @@ namespace Twitter
         }
 
         /// <summary>
-        /// Invocado quando a execução do aplicativo é suspensa. O estado do aplicativo é salvo
+        /// Chamado quando a execução do aplicativo está sendo suspensa.  O estado do aplicativo é salvo
         /// sem saber se o aplicativo será encerrado ou retomado com o conteúdo
         /// da memória ainda intacto.
         /// </summary>
-        /// <param name="sender">A origem da solicitação de suspensão.</param>
+        /// <param name="sender">A fonte da solicitação de suspensão.</param>
         /// <param name="e">Detalhes sobre a solicitação de suspensão.</param>
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
@@ -98,5 +97,4 @@ namespace Twitter
             deferral.Complete();
         }
     }
-
 }

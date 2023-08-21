@@ -12,11 +12,8 @@ Currently not working features and known issues:
 
 Things I am currently working:
 
-- Ad blocking
 
-- Notifications
-
-- Make the app a bit faster on low spec devices such as 512 mb Lumia phones
+- Make the app consume less battery, but that's really a problem as Twitter website consumes a lot.
 
 If you have any tips I would be so grateful to have it shared!
 

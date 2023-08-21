@@ -12,9 +12,6 @@ Currently not working features and known issues:
 
 Things I am currently working:
 
-
 - Make the app consume less battery, but that's really a problem as Twitter website consumes a lot.
 
 If you have any tips I would be so grateful to have it shared!
-
-Note: after building, you will have to unpack the package and add Twitter_Logo_Blue.png into the root of the package, and then repack again. not doing this will result on a missing image on network error page.

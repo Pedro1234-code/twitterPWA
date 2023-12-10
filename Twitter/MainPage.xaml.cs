@@ -22,16 +22,10 @@ namespace Twitter
             SystemNavigationManager currentView = SystemNavigationManager.GetForCurrentView();
             currentView.BackRequested += CurrentView_BackRequested;
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-            AppLoaderWB.NavigationCompleted += AppLoaderWB_NavigationCompleted; 
-            AppLoaderWB.Focus(FocusState.Programmatic);
             CheckInternetConnection();
 
         }
 
-        private void AppLoaderWB_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
-        {
-            AppLoaderWB.Focus(FocusState.Programmatic); 
-        }
 
         private void CurrentView_BackRequested(object sender, BackRequestedEventArgs e)
         {
@@ -47,7 +41,7 @@ namespace Twitter
             bool isConnected = await CheckForInternetConnectionAsync();
             if (isConnected)
             {
-                NavigateWithHeader(new Uri("https://twitter.com"));
+                NavigateWithHeader(new Uri("https://nitter.net"));
             }
             else
             {
@@ -80,20 +74,5 @@ namespace Twitter
 
         }
 
-        private async void OpenFilePicker()
-        {
-            FileOpenPicker filePicker = new FileOpenPicker();
-            filePicker.ViewMode = PickerViewMode.Thumbnail;
-            filePicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
-            filePicker.FileTypeFilter.Add("*"); 
-            filePicker.FileTypeFilter.Add(".jpg");
-            filePicker.FileTypeFilter.Add(".png");
-
-            StorageFile file = await filePicker.PickSingleFileAsync();
-            if (file != null)
-            {
-                
-            }
         }
     }
-}
